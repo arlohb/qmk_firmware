@@ -40,11 +40,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_QWERTY] = LAYOUT(
-  KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_GRV,
-  KC_ESC,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_BSPC,
-  KC_TAB,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_QUOT,
-  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, XXXXXXX,     KC_MUTE,KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_RSFT,
-                 KC_LALT,KC_LGUI,KC_LCTL, TL_LOWR, KC_ENT,      KC_SPC,  TL_UPPR, C(KC_BSPC), KC_MPLY, _______
+  KC_GRV,   KC_1,         KC_2,    KC_3,         KC_4,         KC_5,                       KC_6,    KC_7,         KC_8,         KC_9,   KC_0,             KC_GRV,
+  KC_ESC,   KC_Q,         KC_W,    KC_E,         KC_R,         KC_T,                       KC_Y,    KC_U,         KC_I,         KC_O,   KC_P,             KC_BSPC,
+  KC_TAB,   LSFT_T(KC_A), KC_S,    LGUI_T(KC_D), LCTL_T(KC_F), KC_G,                       KC_H,    LCTL_T(KC_J), LGUI_T(KC_K), KC_L,   LSFT_T(KC_SCLN),  KC_QUOT,
+  KC_LSFT,  KC_Z,         KC_X,    KC_C,         KC_V,         KC_B,    XXXXXXX,  KC_MUTE, KC_N,    KC_M,         KC_COMM,      KC_DOT, KC_SLSH,          KC_RSFT,
+                          KC_LALT, KC_LGUI,      KC_LCTL,      TL_LOWR, KC_ENT,   KC_SPC,  TL_UPPR, C(KC_BSPC),   KC_MPLY,      _______
 ),
 /*
  * COLEMAK
@@ -136,11 +136,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_GAMING] = LAYOUT(
   TG(_GAMING), _______, _______, _______, _______, _______,                       _______, _______, _______, _______, _______, TG(_GAMING),
   _______    , _______, KC_R   , KC_W   , KC_E   , _______,                       _______, _______, _______, _______, _______, _______    ,
-  _______    , KC_F   , KC_A   , KC_S   , KC_D   , _______,                       _______, _______, _______, _______, _______, _______    ,
+  _______    , KC_F   , KC_A   , KC_S   , KC_D   , _______,                       _______, KC_J   , KC_K   , _______, KC_SCLN, _______    ,
   _______    , _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______    ,
                         KC_Y   , KC_U   , KC_I   , KC_SPC , KC_O   ,     _______, _______, _______, _______, _______
 )
 };
+
+#ifdef TAPPING_TERM_PER_KEY
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    uint16_t ctlIncrease = 100;
+    uint16_t guiIncrease = 100;
+
+    switch (keycode) {
+        case LCTL_T(KC_F):
+        case RCTL_T(KC_J):
+            return TAPPING_TERM + ctlIncrease;
+        case LGUI_T(KC_D):
+        case RGUI_T(KC_K):
+            return TAPPING_TERM + guiIncrease;
+        default:
+            return TAPPING_TERM;
+    }
+}
+#endif
 
 #ifdef ENCODER_ENABLE
 bool encoder_update_user(uint8_t index, bool clockwise) {
