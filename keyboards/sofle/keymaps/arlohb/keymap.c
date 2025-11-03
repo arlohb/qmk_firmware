@@ -8,7 +8,7 @@
 enum sofle_layers {
     /* _M_XYZ = Mac Os, _W_XYZ = Win/Linux */
     _QWERTY,
-    _COLEMAK,
+    _CANARY,
     _LOWER,
     _RAISE,
     _ADJUST,
@@ -41,20 +41,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_QWERTY] = LAYOUT(
-  _______,  _______     , _______, _______     , _______     , _______,                   _______, _______     , _______     , _______, _______        , _______,
-  KC_GRV ,  KC_Q        , KC_W   , KC_E        , KC_R        , KC_T   ,                   KC_Y   , KC_U        , KC_I        , KC_O   , KC_P           , KC_BSPC,
-  KC_ESC ,  LSFT_T(KC_A), KC_S   , LGUI_T(KC_D), LCTL_T(KC_F), KC_G   ,                   KC_H   , LCTL_T(KC_J), LGUI_T(KC_K), KC_L   , LSFT_T(KC_SCLN), KC_QUOT,
-  KC_TAB ,  KC_Z        , KC_X   , KC_C        , KC_V        , KC_B   , XXXXXXX, KC_MUTE, KC_N   , KC_M        , KC_COMM     , KC_DOT , KC_SLSH        , KC_RSFT,
+  _______,  _______     , _______, _______     , _______     , _______,                   _______, _______     , _______     , _______, _______        , TG(_CANARY),
+  KC_GRV ,  KC_Q        , KC_W   , KC_E        , KC_R        , KC_T   ,                   KC_Y   , KC_U        , KC_I        , KC_O   , KC_P           , KC_BSPC    ,
+  KC_ESC ,  LSFT_T(KC_A), KC_S   , LGUI_T(KC_D), LCTL_T(KC_F), KC_G   ,                   KC_H   , LCTL_T(KC_J), LGUI_T(KC_K), KC_L   , LSFT_T(KC_SCLN), KC_QUOT    ,
+  KC_TAB ,  KC_Z        , KC_X   , KC_C        , KC_V        , KC_B   , XXXXXXX, KC_MUTE, KC_N   , KC_M        , KC_COMM     , KC_DOT , KC_SLSH        , _______    ,
                           KC_LALT, KC_LGUI     , KC_LCTL     , TL_LOWR, KC_ENT , KC_SPC , TL_UPPR, C(KC_BSPC)  , KC_MPLY     , _______
 ),
 
 // Want to remove, didn't work last time I tried
-[_COLEMAK] = LAYOUT(
-  KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_GRV,
-  KC_ESC,   KC_Q,   KC_W,    KC_F,    KC_P,    KC_G,                      KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN,  KC_BSPC,
-  KC_TAB,   KC_A,   KC_R,    KC_S,    KC_T,    KC_D,                      KC_H,    KC_N,    KC_E,    KC_I,    KC_O,  KC_QUOT,
-  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, XXXXXXX,      KC_MUTE,KC_K,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_RSFT,
-                 KC_LGUI,KC_LALT,KC_LCTL,TL_LOWR, KC_ENT,        KC_SPC,  TL_UPPR, KC_RCTL, KC_RALT, KC_RGUI
+[_CANARY] = LAYOUT(
+  _______,  _______     , _______, _______     , _______     , _______,                   _______, _______     , _______     , _______, _______     , _______,
+  _______,  KC_W        , KC_L   , KC_Y        , KC_P        , KC_B   ,                   KC_Z   , KC_F        , KC_O        , KC_U   , KC_QUOT     , _______,
+  _______,  LSFT_T(KC_C), KC_R   , LGUI_T(KC_S), LCTL_T(KC_T), KC_G   ,                   KC_M   , LCTL_T(KC_N), LGUI_T(KC_E), KC_I   , LSFT_T(KC_A), _______,
+  _______,  KC_Q        , KC_J   , KC_V        , KC_D        , KC_K   , _______, _______, KC_X   , KC_H        , _______     , _______, _______     , _______,
+                          _______, _______     , _______     , _______, _______, _______, _______, _______     , _______     , _______
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
