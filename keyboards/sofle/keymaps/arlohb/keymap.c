@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Want to remove, didn't work last time I tried
 [_CANARY] = LAYOUT(
   _______,  _______     , _______, _______     , _______     , _______,                   _______, _______     , _______     , _______, _______     , _______,
-  _______,  KC_W        , KC_L   , KC_Y        , KC_P        , KC_B   ,                   KC_Z   , KC_F        , KC_O        , KC_U   , KC_QUOT     , _______,
+  _______,  KC_W        , KC_L   , KC_Y        , KC_P        , KC_B   ,                   KC_Z   , KC_F        , KC_O        , KC_U   , KC_SCLN     , _______,
   _______,  LSFT_T(KC_C), KC_R   , LGUI_T(KC_S), LCTL_T(KC_T), KC_G   ,                   KC_M   , LCTL_T(KC_N), LGUI_T(KC_E), KC_I   , LSFT_T(KC_A), _______,
   _______,  KC_Q        , KC_J   , KC_V        , KC_D        , KC_K   , _______, _______, KC_X   , KC_H        , _______     , _______, _______     , _______,
                           _______, _______     , _______     , _______, _______, _______, _______, _______     , _______     , _______
